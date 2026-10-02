@@ -2,8 +2,6 @@
 
 ## About The Project
 
-
-
 MyNeoESTATE is a modern real-estate website designed to showcase apartments and estates available for sale.The website serves Estates and Apartments to let, tourists and for people to rent.
 
 ## Prgramming Languages 
@@ -22,3 +20,11 @@ A responsive Real Estate Website project built using
 - Easy navigation
 - Contact page
 - Responsive design
+
+## Reference
+
+Pinterest (all images)
+WW3 schools (programming languages)
+Youtube
+Google prompts
+ChatGPT (scenarios/grammatical errors)
