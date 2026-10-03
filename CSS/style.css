@@ -1,164 +1,208 @@
 
 /* HOMEPAGE */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body {
-    background-image: url("../MEDIA/estate4.png");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-bottom: 15px;
+    background-color: aliceblue;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(1, 9, 18);
 }
-.section{
-    background-color: rgb(3, 25, 116);
-    background-size: cover;
-    border-radius: 40px;
-    margin-bottom: 30px;
-    padding: 50%;
-}
+
+/*h1, h2, h3, h4*/
+
 h1 {
-    color:rgb(241, 246, 252);
-    text-align: center;
+    color:rgb(251, 252, 253);
+    text-align: right;
     font-family: 'Times New Roman', Times, serif;
     font-size: 50px;
-    font-weight: bold;
-    background-color: rgba(34, 31, 52, 0.9);
-    
-   
+    font-weight: bold; 
 }
-p {
-    color:rgb(251, 251, 252);
+h2 {
+    color: rgb(0, 4, 9);
     text-align: left;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 50px;
+    margin: 20px;
+}
+
+h3{
+    color: #090005;
+    font-size: 30px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+
+}
+h4{
+    color: rgb(1, 9, 18);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+    font-weight: bold;
+}
+hr{
+    border: 1px solid rgb(0, 0, 0);
+    width: 100%;
+}
+
+/* HOME-PAGE*/
+
+.card-box{
     font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
-    line-height: 1.5;
-    border-color: aqua;
-    border: 2px solid rgb(3, 112, 149);
-    border-radius: 10px;
-    padding: 20px;
     margin: 30px;
-    
+    position: relative;
+
 }
 
+/* HEADER */
 
-.card{
-    color: rgb(239, 238, 243);
+Header{
     text-align: center;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 40px;
-    text-decoration: none;
+    background-color: rgba(2, 42, 6, 0.996);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 30px;
 }
-.logo {
-    color: rgb(189, 231, 243);
-    text-align: left;
-    text-shadow: 0px 0px 8px rgb(236, 236, 245);
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 50px;
-    text-decoration: none;
-}
+    /* NAVIGATION BAR & ANCHOR */
+    
 a {
     text-decoration: none;
     color: rgb(243, 246, 247);
-    padding: 15px 20px;
-    font-size: 30px;
+    padding: 15px;
+    font-size: 20px;
     font-family: 'Courier New', Courier, monospace;
 }
+nav{
+    background-color: #064c63;
+    padding: 15px;
 
-a:hover {
-    background-attachment: fixed;
-    background-color: rgba(3, 0, 16, 0.279);
-    box-sizing: content-box;
-    transition: all;
 }
-.button-one {
+
+nav a {
+    
+    text-align: right;
+    align-items: right;
+
+}
+nav a:hover {
+    color: rgb(0, 0, 0);
+    background-color: rgb(0, 255, 255);
+    transition: 0.5s;
+}  
+    
+
+p {
+    color:rgb(4, 4, 14);
+    text-align: left;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    
+}
+
+
+
+/* BUTTONS */
+.button1:hover {
+    background-color: rgba(68, 193, 43, 0.279);
+    box-sizing:content-box;
+    transition: 0.3;
+}
+.button1 {
+    text-decoration: none;
+    margin: 15px;
+    padding: 5px 5px;
+    color: rgb(1, 15, 15);
+    font-size: small;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 2px solid rgba(16, 16, 213, 0.975);
+}.button2{
     text-decoration: none;
     margin: 15px;
     padding: 5px 5px;
     color: rgb(252, 255, 255);
     font-size: small;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    border: 2px solid rgba(16, 16, 213, 0.975);
-}
-
     
-.top_nav {
-   
-    text-align: right;
-    align-items: center;
-    background-color: rgb(23, 113, 113);
-    margin-bottom: 30px;  
 }
-/* ABOUT */
-.about{
-    padding: 20px;
-    border-radius: 50px;
-}
-.about section{
-    background-color: blue;
 
-}
+
+
+
+
+/* ABOUT */
+
+
+
 .description {
-    color: rgb(244, 244, 247);
+    color: rgb(5, 5, 19);
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
     line-height: 1.5;
+    margin: 20px;
 }
 
 
+/* CONTACT */
 
 .contact{
     color: rgb(227, 227, 237);
     text-align:left;
     padding: 15px;
-    
-
 }
 .contact-card {
 
     border-radius: 20px;
+    border:#090005;
     padding: 20px;
     text-align: center;
 }
-    .contact-card p {
-        color: rgb(203, 215, 230);
+.contact-card p {
+        color: rgb(2, 8, 13);
         font-family: 'Times New Roman', Times, serif;
         font-size: 20px;
-        line-height: 1.5;
+        background-color: rgba(12, 148, 169, 0.482);
+
     }
 
 
-h2 {
-    color: rgb(241, 246, 252);
+/*Payments*/
+
+.card{
+    color: rgb(5, 2, 17);
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
-    font-size: 50px;
-    font-weight: bold;
-    background-color: rgba(34, 31, 52, 0.9);
+    font-size: 40px;
+    text-decoration: none;
 }
-img {
+/*ESTATES*/
+
+
+#estates{
+    
+    background-size:contain;
+    border-radius: 20px;
+}
+section #estates img{
     border-radius: 20px;
     margin: 10px;
     padding: 10px;
-
+}
+p #estates{
+    color: rgb(1, 9, 18);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+    padding: 20px;
+    margin: 30px;
+}
+span{
+    color: rgb(0, 2, 4);
 }
 .container p{
     margin: 0%;
     border: none;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-
-}
-.card-box p{
-    border: 2px;
-    border-radius: 5px;
-    border-color: black; 
-
-}
-.home-image{
-    background-position: cover;
-
-}
-span{
-    color: aliceblue;
-}
-h3{
-    color: #fdf7f7;
+    font-family: 'Times New Roman', Times, serif;
+   
 }
