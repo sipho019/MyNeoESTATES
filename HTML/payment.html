@@ -25,37 +25,42 @@
                
         
         </nav>
-    
-    <h3>Client Bank Details</h3>
-    <div class="Card">
-        <form action="">
-            <div class="row">
-            <div class="input-box">
-                <span>Client Name:</span>
-                <input type="text" placeholder="Neo Sipho">
+        
+        <form>
+            <h3>Client Details</h3>
+            
+            <div class="form-group">
+                <label for="clientName">Client Name:</label>
+                <input type="text" id="clientName" placeholder="Neo Sipho">
             </div>
-            <div class="input-box">
-                <span>Bank Card Name:</span>
-                <input type="text" placeholder="NS Mshumpela">
-                </div>
-                <div class="input-box">
-                    <span>Identity Number:</span>
-                    <input type="text" placeholder="1234567890">
-                </div>
-                <div class="input-box">
-                    <span>Bank type</span>
-                    <input type="text" placeholder="Little Tree House">
-                </div>
-                <div class="input-box">
-                    <span>Security Code</span>
-                    <input type="text" placeholder="123" maxlength="3">
-                </div>
-                <button><b>submit</b></button>
 
-            </div>
-        </form>
-    </div>
+            <div class="form-group">
+              <label for="clientSurname">Surname:</label>
+              <input type="text"  id="clientSurname" placeholder="Mshumpela">
+            </div>   
 
-    
-</body>
-</html>
+                <div class="form-group">
+                    <label for="cardType">Card type:</label>
+                <input type="text" id="cardType" placeholder="First National Bank">
+                </div>
+
+                <div class="form-group">
+                     <label for="cardType">Debit/Credit Card:</label>
+                    <input type="text" id="cardType" placeholder="Optional">
+                </div>
+
+                <div class="form-group">
+                     <label for="cardNumber">Card Number:</label>
+                    <input type="text" id="cardNumber" placeholder="12345678910">
+                </div>
+
+                <div class="form-group">
+                     <label for="security">Security Code:</label>
+                    <input type="password" id="security" placeholder="123" maxlength="3">
+                </div>
+
+                <button>Submit</button>
+
+                </form>
+            </body>
+            </html>

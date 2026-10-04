@@ -33,6 +33,7 @@ h3{
     font-size: 30px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     text-align: center;
+    margin-top: 20px;
 
 }
 h4{
@@ -110,71 +111,39 @@ p {
 
 
 /* BUTTONS */
-button:hover {
-    background-color: rgb(18, 20, 18);
-    color: aliceblue;
-    box-sizing:content-box;
-    transition: 0.3s;
-    
-}
-button {
 
-    
+button {
     margin: 15px;
     padding: 5px 5px;
-    color: rgba(1, 1, 16, 0.96);
-    background-color: rgba(17, 201, 233, 0.789);
+    color: rgba(4, 4, 15, 0.96);
+    background-color: rgba(211, 219, 220, 0.789);
     font-size:medium;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    border: 2px bold rgba(0, 0, 0, 0.227);
-    border-radius: 10px;
-    
-
-}.button2{
-    text-decoration: none;
-    margin: 15px;
-    padding: 5px ;
-    color: rgb(252, 255, 255);
-    font-size: small;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    border-radius: 0px;
-    
+    border: 1px bold black;
+    border-radius: 6px;
 }
-.button3 :hover{
-    background-color: aqua;
-    transition:1s;  
-
-
-
+button:hover {
+    background-color: rgba(33, 5, 145, 0.911);
+    color: white;
+    box-sizing:content-box;
+    transition: 0.3s; 
 }
-
-
-.button3{
-    text-decoration: none;
-    text-align: right;
-    margin: 15px;
-    padding: 5px 5px;
-    color: rgb(12, 2, 47);
-    font-size: small;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    
-}
-
-
-
 
 /* ABOUT */
 
-
-
-.description {
+.card-box {
     color: rgb(5, 5, 19);
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
     line-height: 1.5;
     margin: 20px;
+    margin-top: 5px;
     padding: 20px;
+}
+.card-box{
+    border: 2px solid #090005;
+    border-radius: 3px;
 }
 
 
@@ -203,21 +172,17 @@ button {
 
 /*Payments*/
 
-.card{
-    color: rgb(5, 2, 17);
-    text-align: center;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 40px;
-    text-decoration: none;
-}
-.card span {
-    text-align: left;
-}
-.card input{
-    position: right;
-}
-/*ESTATES*/
+.form-group{
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    border: 1px solid rgb(7, 118, 25);
+    border-radius: 3px;
 
+}
+
+/*ESTATES*/
 
 #estates{
     
@@ -244,18 +209,4 @@ span{
     border: none;
     font-family: 'Times New Roman', Times, serif;
    
-}
-.overlay-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 24px;
-    text-align: center;
-}
-.home1 {
-    width: 50%;
-    height: 500px;
-
 }
