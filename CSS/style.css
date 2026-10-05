@@ -145,6 +145,18 @@ button:hover {
     border: 2px solid #090005;
     border-radius: 3px;
 }
+.card-box2{
+    color: #090005;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+    margin:  20px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding: 20px;
+    padding-bottom: 0px;
+    
+}
 
 
 /* CONTACT */
@@ -204,9 +216,17 @@ p #estates{
 span{
     color: rgb(0, 2, 4);
 }
-.container p{
-    margin: 0%;
-    border: none;
+.card-box3{
+    margin: 5px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 2px solid rgb(8, 0, 0);
+    border-radius: 40px;
+    background-color: rgba(61, 10, 86, 0.56);
     font-family: 'Times New Roman', Times, serif;
+}
+.card-box3 p{
+    color: azure;
    
 }
+
