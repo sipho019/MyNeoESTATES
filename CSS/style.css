@@ -123,7 +123,7 @@ button {
     border-radius: 6px;
 }
 button:hover {
-    background-color: rgba(33, 5, 145, 0.911);
+    background-color: rgba(145, 45, 5, 0.911);
     color: white;
     box-sizing:content-box;
     transition: 0.3s; 
@@ -222,11 +222,29 @@ span{
     padding: 20px;
     border: 2px solid rgb(8, 0, 0);
     border-radius: 40px;
-    background-color: rgba(61, 10, 86, 0.56);
+    background-color: rgba(10, 61, 86, 0.56);
     font-family: 'Times New Roman', Times, serif;
 }
 .card-box3 p{
     color: azure;
    
+}
+.img-container button{
+    position:left  ;
+
+}
+.img-container img{
+    margin-top: 10px;
+}
+footer{
+    background-color: #090005;
+    padding: 20px;
+    padding-bottom: 50px;
+   
+
+}
+footer p{
+    text-align: center;
+    color: aliceblue;
 }
 
