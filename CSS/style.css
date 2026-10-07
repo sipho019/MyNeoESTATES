@@ -13,13 +13,8 @@ body {
 
 /*h1, h2, h3, h4*/
 
-h1 {
-    color:rgb(251, 252, 253);
-    text-align: right;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 50px;
-    font-weight: bold; 
-}
+
+
 h2 {
     color: rgb(0, 4, 9);
     text-align: left;
@@ -59,62 +54,53 @@ hr{
 
 /* HEADER */
 
-Header{
-    text-align: center;
-    background-color: rgba(2, 42, 6, 0.996);
-    color: rgb(255, 255, 255);
-    text-align: center;
-    padding: 20px;
-    padding-bottom: 5px;
-    padding-top: 30px;
-}
-header p{
-    text-align: right;
-    color: rgba(246, 246, 246, 0.586);
-}
+
     /* NAVIGATION BAR & ANCHOR */
     
-a {
+.navbar{
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    padding: 0px;
+    margin-bottom: 0%;
+    background-color: #064c63;
+    height: 60px;
+
+}
+.nav-logo{
+    height: 80px;
+    margin-bottom: 0px;
+    width: auto;
+    display: block;
+}
+
+.nav-links{
+    display: flex;
+    justify-content: center;
+    margin: 25px;
+    gap: 15px;
+    padding: 0px;
+}
+    
+.nav-links a{
     text-decoration: none;
     color: rgb(243, 246, 247);
-    padding: 15px;
     font-size: 20px;
     font-family: 'Courier New', Courier, monospace;
+    width: auto;
+    height: auto;
+    transition: 0.5s
 }
-nav{
-    background-color: #064c63;
-    padding: 15px;
-
+.nav-links a:hover{
+    color: #06cff7;
+   
 }
-
-nav a {
-    
-    text-align: right;
-    align-items: right;
-
-}
-nav a:hover {
-    color: rgb(0, 0, 0);
-    background-color: rgb(0, 255, 255);
-    transition: 0.5s;
-}  
-    
-
-p {
-    color:rgb(4, 4, 14);
-    text-align: left;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 20px;
-    
-}
-
-
 
 /* BUTTONS */
 
 button {
     margin: 15px;
-    padding: 5px 5px;
+    padding: 10px 15px;
     color: rgba(4, 4, 15, 0.96);
     background-color: rgba(211, 219, 220, 0.789);
     font-size:medium;
