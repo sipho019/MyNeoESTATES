@@ -115,6 +115,39 @@ button:hover {
     transition: 0.3s; 
 }
 
+
+.welcome-title{
+    animation: slideIn 1.2s ease-out;
+}
+@keyframes slideIn { 
+    from{
+        opacity: 0;
+        transform: translateY(-40px);
+
+}
+to{
+    opacity: 1;
+    transform: translateY(0);
+}
+}
+
+.welcome-discription{
+    animation: fadeIn 1.5s ease-in 0.5s both;
+    padding: 20px;
+    margin: 15px;
+    font-size: large;
+}
+
+@keyframes fadeIn{ 
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+
 /* ABOUT */
 
 .card-box {
@@ -131,18 +164,7 @@ button:hover {
     border: 2px solid #090005;
     border-radius: 3px;
 }
-.card-box2{
-    color: #090005;
-    text-align: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: large;
-    margin:  20px;
-    margin-bottom: 0px;
-    margin-top: 0px;
-    padding: 20px;
-    padding-bottom: 0px;
-    
-}
+
 
 
 /* CONTACT */
