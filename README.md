@@ -8,7 +8,7 @@ MyNeoESTATE is a modern real-estate website designed to showcase apartments and 
 
 - HTML5
 - CSS3
-- JavaScript
+- JavaScript (not yet included JavaScript)
 - Visual Studio Code
 - Git
 - Github
