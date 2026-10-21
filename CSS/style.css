@@ -7,7 +7,6 @@
 }
 body {
     background-color: aliceblue;
-    font-family: 'Times New Roman', Times, serif;
     color: rgb(1, 9, 18);
     margin-bottom: 20px;
     
@@ -197,19 +196,64 @@ to{
 
 /*Payments*/
 
+.box-details{
+    padding: 25px;
+    background-color: #068b995b;
+    border: 2px solid #090005;
+    border-radius: 20px;
+    color: rgb(0, 6, 10);
+    font-weight: 900;
+    width: 90%;
+
+}
+.details{
+    margin-top: 0%;
+    display: block ;
+}
 .form-group{
     width: 100%;
     padding: 10px;
     font-size: 18px;
     font-weight: bold;
-    border: 1px solid rgb(7, 118, 25);
     border-radius: 3px;
-
+}
+label{
+    margin-bottom: 6px;
+}
+input{
+    
+    padding: 10px;
+    padding-bottom: 2px;
+    padding-left: 3px;
+    width: 50%;
+    
 }
 
-/*ESTATES*/
+/* buttons */
+
+#payment-btn, #msg-btn, #call-btn{
+    padding: 3px;
+    margin-top: 5px;
+    margin: 5px;
+    background-color: rgba(17, 4, 197, 0.651);
+    color: #fcfbfc;
+}
+#payment-btn:hover{
+    background-color: #f73606c7;
+    color: #fcfbfc;
+
+}
+#msg-btn:hover{
+        background-color: #06f722c7;
+        color: #0a0a0a;
+}
+#call-btn:hover{
+        background-color: #32f706c7;
+        color: #0a0a0a;
+}
 
 
+/* Properties*/
 
 .card-box3{
     margin: 5px;
@@ -222,7 +266,7 @@ to{
 }
 
    /* slider-wrapper for images */
-.container{
+.container-wrapper{
     max-width: 1100px;
     width: 90%;
     margin: 40px;
@@ -249,17 +293,21 @@ to{
 
 }
 
+/* footer */
 
 footer{
-    color: aliceblue;
-    background-color: #090005;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    padding: 20px;
+    background-color: #242324;
+    padding: 10px;
     padding-bottom: 50px;
     margin-top: 15px;
     text-align: center;
     
 }
-
+footer p{
+    color: aliceblue;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 500;
+    padding-top: 15px; 
+}
 
 
