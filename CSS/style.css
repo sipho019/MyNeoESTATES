@@ -196,15 +196,15 @@ to{
 
 /*Payments*/
 
-.box-details{
+.card-details{
     padding: 25px;
-    background-color: #068b995b;
+    background-color: #6b989d5b;
     border: 2px solid #090005;
     border-radius: 20px;
     color: rgb(0, 6, 10);
     font-weight: 900;
     width: 90%;
-
+    margin: auto;
 }
 .details{
     margin-top: 0%;
