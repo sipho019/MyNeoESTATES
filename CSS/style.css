@@ -292,6 +292,25 @@ input{
     align-items: center;
 
 }
+main{
+    padding: 15px;
+    background-color: rgba(235, 231, 226, 0.673);
+}
+#property-title{
+    padding: 5px;
+    margin-top: 0px;
+    margin-bottom: 15px;
+
+}
+.property-intro{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: larger;
+    margin-bottom: 25px;
+}
+.property{
+    margin-bottom: 50px;
+}
+
 
 /* footer */
 
@@ -309,5 +328,7 @@ footer p{
     font-weight: 500;
     padding-top: 15px; 
 }
-
+#payment-footer{
+    margin-top: 150px;
+}
 
