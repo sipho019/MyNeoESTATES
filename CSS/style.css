@@ -1,153 +1,222 @@
-
-/* HOMEPAGE */
-*{
+/* ========== RESET ========== */
+/* * selects every element. We remove the browser's default spacing
+   so we start from a clean slate. */
+* {
     margin: 0;
     padding: 0;
+    /* box-sizing: border-box makes padding and borders count INSIDE the width */
     box-sizing: border-box;
 }
+
 body {
     background-color: aliceblue;
     color: rgb(1, 9, 18);
     margin-bottom: 20px;
-    
 }
 
-p{
-    font-size:larger;
+p {
+    font-size: larger;
 }
-/*h1, h2, h3, h4*/
 
-
-
-h2 {
+/* ========== HEADINGS ========== */
+/* The comma means: apply this rule to h1 AND h2 */
+h1, h2 {
     color: rgb(0, 4, 9);
     text-align: left;
     font-size: 50px;
     margin: 20px;
-
 }
 
-h3{
+h3 {
     color: #090005;
     font-size: 30px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     text-align: center;
     margin-top: 20px;
-
 }
-h4{
+
+h4 {
     color: rgb(1, 9, 18);
     font-family: 'Times New Roman', Times, serif;
     font-size: 30px;
     font-weight: bold;
 }
-hr{
+
+hr {
     border: 1px solid rgb(0, 0, 0);
     width: 100%;
 }
 
-/* HOME-PAGE*/
-
-.card-box{
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 20px;
-    margin: 30px;
-    text-align: center;
-
-}
-
-/* HEADER */
-
-
-    /* NAVIGATION BAR & ANCHOR */
-    
-.navbar{
-    display: flex;
-    justify-content: left;
-    align-items: left;
-    padding: 0px;
-    margin-bottom: 0%;
+/* ========== NAVIGATION BAR ========== */
+.navbar {
+    display: flex;               /* puts the logo and links in a row */
+    justify-content: flex-start; /* items start at the left */
+    align-items: center;         /* items centred vertically */
     background-color: #064c63;
-    height: 60px;
-
-}
-.nav-logo{
-    height: 80px;
-    margin-bottom: 0px;
-    width: auto;
-    display: block;
+    min-height: 60px;            /* can grow, but never shrinks below 60px */
+    padding: 0 20px;             /* 0 top/bottom, 20px left/right */
 }
 
-.nav-links{
+.nav-logo {
+    height: 50px;
+    width: auto;                 /* keeps the logo's proportions */
+    display: block;              /* removes the small gap images get under them */
+}
+
+.nav-links {
     display: flex;
-    justify-content: center;
-    margin: 25px;
-    gap: 15px;
-    padding: 0px;
+    list-style: none;            /* removes the bullet points from <li> */
+    gap: 15px;                   /* space between the links */
+    margin-left: 25px;
 }
-    
-.nav-links a{
-    text-decoration: none;
+
+.nav-links a {
+    text-decoration: none;       /* removes the underline */
     color: rgb(243, 246, 247);
     font-size: 20px;
     font-family: 'Courier New', Courier, monospace;
-    width: auto;
-    height: auto;
-    transition: 0.5s
+    transition: color 0.5s;      /* only the colour animates */
 }
-.nav-links a:hover{
+
+.nav-links a:hover {
     color: #06cff7;
-   
 }
 
-/* BUTTONS */
+/* ========== HERO IMAGE ========== */
+.hero-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;           /* crops the photo to fill the box without stretching it */
+    display: block;
+}
 
+/* ========== BUTTONS ========== */
 button {
     margin: 15px;
     padding: 10px 15px;
     color: rgba(4, 4, 15, 0.96);
     background-color: rgba(211, 219, 220, 0.789);
-    font-size:medium;
+    font-size: medium;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    border: 1px bold black;
+    border: 1px solid black;     /* "bold" is not a border value; "solid" is the style */
     border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
 }
+
 button:hover {
     background-color: rgba(145, 45, 5, 0.911);
     color: white;
-    box-sizing:content-box;
-    transition: 0.3s; 
 }
 
+/* ========== CARDS (used on other pages) ========== */
+.card-box {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    margin: 30px;
+    text-align: center;
+}
 
-.welcome-title{
+/* ========== ANIMATIONS ========== */
+/* # selects an element by its id; . selects by class */
+#welcome-title {
     animation: slideIn 1.2s ease-out;
 }
-@keyframes slideIn { 
-    from{
+
+@keyframes slideIn {
+    from {
         opacity: 0;
-        transform: translateY(-40px);
+        transform: translateY(-40px);   /* starts 40px higher up */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-}
-to{
-    opacity: 1;
-    transform: translateY(0);
-}
-}
-
-.welcome-discription{
+.welcome-description {
+    /* "both" keeps the starting state during the 0.5s delay and the end state after */
     animation: fadeIn 1.5s ease-in 0.5s both;
     padding: 20px;
     margin: 15px;
     font-size: large;
 }
 
-@keyframes fadeIn{ 
-    from{
-        opacity: 0;
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* ========== IMAGE SLIDER ========== */
+.container-wrapper {
+    max-width: 1000px;
+    margin: 30px auto;           /* "auto" on the sides centres the block */
+    padding: 0 20px;
+}
+
+.slider-wrapper {
+    position: relative;          /* lets the arrow buttons position themselves inside it */
+}
+
+.image-list {
+    display: flex;               /* lines the images up in one row */
+    gap: 15px;
+    overflow-x: auto;            /* a horizontal scrollbar appears when images don't fit */
+    scrollbar-width: thin;
+}
+
+.image-item {
+    flex: 0 0 auto;              /* don't grow, don't shrink, keep own size */
+    width: 400px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.slider-btn {
+    position: absolute;          /* placed relative to .slider-wrapper */
+    top: 50%;
+    transform: translateY(-50%); /* moves it up by half its own height to centre it */
+    margin: 0;                   /* cancels the 15px margin from the general button rule */
+    z-index: 1;                  /* keeps the buttons on top of the images */
+    background-color: rgba(6, 76, 99, 0.85);
+    color: white;
+}
+
+.slider-btn.prev { left: 10px; }
+.slider-btn.next { right: 10px; }
+
+/* ========== FOOTER ========== */
+footer {
+    text-align: center;
+    padding: 20px;
+}
+
+/* ========== PHONES ========== */
+/* These rules apply only when the screen is 600px wide or smaller */
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;  /* logo above the links */
+        padding: 10px;
     }
-    to{
-        opacity: 1;
+
+    .nav-links {
+        flex-wrap: wrap;         /* links drop to a new row if needed */
+        justify-content: center;
+        margin-left: 0;
+    }
+
+    h1, h2 {
+        font-size: 32px;
+    }
+
+    .hero-image {
+        height: 250px;
+    }
+
+    .image-item {
+        width: 260px;
+        height: 200px;
     }
 }
 
