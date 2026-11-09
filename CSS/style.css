@@ -1,186 +1,291 @@
-/* ========== RESET ========== */
-/* * selects every element. We remove the browser's default spacing
-   so we start from a clean slate. */
+/* ========== VARIABLES ========== */
+/* :root is the top of the page. Anything defined here can be reused everywhere with var(--name).
+   To change the theme later, you only edit these lines. */
+:root {
+    --navy: #0b2545;
+    --navy-light: #13315c;
+    --gold: #c9a227;
+    --gold-light: #e0be4d;
+    --bg: #f5f7fa;
+    --text: #1b263b;
+    --shadow: 0 8px 24px rgba(11, 37, 69, 0.18);
+    --ease: 0.35s ease;          /* one speed for all transitions, so the site feels consistent */
+}
+
+/* ========== RESET & BASE ========== */
 * {
     margin: 0;
     padding: 0;
-    /* box-sizing: border-box makes padding and borders count INSIDE the width */
-    box-sizing: border-box;
+    box-sizing: border-box;      /* padding and borders count INSIDE the width */
+}
+
+html {
+    scroll-behavior: smooth;     /* clicking an in-page link glides instead of jumping */
 }
 
 body {
-    background-color: aliceblue;
-    color: rgb(1, 9, 18);
-    margin-bottom: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;            /* more space between lines makes text easier to read */
 }
 
-p {
-    font-size: larger;
+img {
+    max-width: 100%;             /* an image can never be wider than its container */
 }
 
-/* ========== HEADINGS ========== */
-/* The comma means: apply this rule to h1 AND h2 */
-h1, h2 {
-    color: rgb(0, 4, 9);
-    text-align: left;
-    font-size: 50px;
+/* Shared styles still used by your other pages */
+h2, h3 {
+    color: var(--navy);
     margin: 20px;
 }
 
 h3 {
-    color: #090005;
-    font-size: 30px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Georgia, 'Times New Roman', serif;
     text-align: center;
-    margin-top: 20px;
 }
 
-h4 {
-    color: rgb(1, 9, 18);
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 30px;
-    font-weight: bold;
-}
-
-hr {
-    border: 1px solid rgb(0, 0, 0);
-    width: 100%;
+.card-box {
+    margin: 30px;
+    font-size: 1.2rem;
+    text-align: center;
 }
 
 /* ========== NAVIGATION BAR ========== */
 .navbar {
-    display: flex;               /* puts the logo and links in a row */
-    justify-content: flex-start; /* items start at the left */
-    align-items: center;         /* items centred vertically */
-    background-color: #064c63;
-    min-height: 60px;            /* can grow, but never shrinks below 60px */
-    padding: 0 20px;             /* 0 top/bottom, 20px left/right */
+    position: sticky;            /* scrolls normally, then sticks to the top of the screen */
+    top: 0;
+    z-index: 100;                /* keeps the bar above everything else */
+    display: flex;
+    justify-content: space-between;  /* logo on the left, links on the right */
+    align-items: center;
+    background-color: var(--navy);
+    padding: 12px 24px;
+    transition: padding var(--ease), box-shadow var(--ease);
+}
+
+/* Added by JavaScript once you scroll down: the bar shrinks and gets a shadow */
+.navbar.scrolled {
+    padding: 6px 24px;
+    box-shadow: var(--shadow);
 }
 
 .nav-logo {
     height: 50px;
-    width: auto;                 /* keeps the logo's proportions */
-    display: block;              /* removes the small gap images get under them */
+    width: auto;
+    display: block;
+    transition: height var(--ease);
+}
+
+.navbar.scrolled .nav-logo {
+    height: 40px;
 }
 
 .nav-links {
     display: flex;
-    list-style: none;            /* removes the bullet points from <li> */
-    gap: 15px;                   /* space between the links */
-    margin-left: 25px;
+    list-style: none;
+    gap: 28px;
 }
 
 .nav-links a {
-    text-decoration: none;       /* removes the underline */
-    color: rgb(243, 246, 247);
-    font-size: 20px;
-    font-family: 'Courier New', Courier, monospace;
-    transition: color 0.5s;      /* only the colour animates */
+    position: relative;          /* so the ::after underline can be positioned against the link */
+    text-decoration: none;
+    color: #e6ecf5;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 6px 0;
+    transition: color var(--ease);
 }
 
-.nav-links a:hover {
-    color: #06cff7;
+/* ::after creates an invisible extra element. Here it is the gold underline. */
+.nav-links a::after {
+    content: "";                 /* pseudo-elements need content, even if empty */
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;                    /* starts with no width, so you can't see it */
+    height: 2px;
+    background-color: var(--gold);
+    transition: width var(--ease);
 }
 
-/* ========== HERO IMAGE ========== */
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--gold);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;                 /* grows to full width, and the transition animates it */
+}
+
+.menu-toggle {
+    display: none;               /* hidden on desktop, shown on phones in the media query below */
+    background: none;
+    border: none;
+    color: var(--gold);
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+/* ========== HERO ========== */
+.hero {
+    position: relative;          /* the title and overlay are positioned inside this box */
+    height: clamp(320px, 70vh, 600px);  /* clamp(min, preferred, max): 70% of screen height, within limits */
+    overflow: hidden;            /* hides the parts of the image that zoom outside the box */
+}
+
 .hero-image {
     width: 100%;
-    height: 400px;
-    object-fit: cover;           /* crops the photo to fill the box without stretching it */
+    height: 100%;
+    object-fit: cover;           /* fills the box and crops the photo, never stretches it */
     display: block;
+    animation: zoomOut 8s ease-out both;  /* slow cinematic zoom */
 }
 
-/* ========== BUTTONS ========== */
-button {
-    margin: 15px;
-    padding: 10px 15px;
-    color: rgba(4, 4, 15, 0.96);
-    background-color: rgba(211, 219, 220, 0.789);
-    font-size: medium;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    border: 1px solid black;     /* "bold" is not a border value; "solid" is the style */
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
+/* A dark navy layer over the photo so the white text stays readable */
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;                    /* shorthand for top, right, bottom, left all = 0 */
+    background: linear-gradient(to bottom, rgba(11, 37, 69, 0.5), rgba(11, 37, 69, 0.85));
 }
 
-button:hover {
-    background-color: rgba(145, 45, 5, 0.911);
+.hero-content {
+    position: absolute;
+    inset: 0;
+    z-index: 1;                  /* sits above the dark overlay */
+    display: flex;
+    flex-direction: column;      /* stacks the title above the button */
+    justify-content: center;     /* centres vertically */
+    align-items: center;         /* centres horizontally */
+    text-align: center;
+    padding: 20px;
+}
+
+#welcome-title {
     color: white;
+    font-size: clamp(1.6rem, 5vw, 3.5rem);   /* grows and shrinks with the screen width */
+    letter-spacing: 3px;
+    margin: 0 0 25px;
+    animation: slideIn 1s ease-out both;
 }
 
-/* ========== CARDS (used on other pages) ========== */
-.card-box {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 20px;
-    margin: 30px;
+#welcome-title span {
+    display: block;              /* puts the name on its own line */
+    color: var(--gold);
+    font-size: clamp(2.2rem, 8vw, 5rem);
+}
+
+/* ========== BUTTON ========== */
+.btn {
+    display: inline-block;
+    padding: 14px 34px;
+    background-color: var(--gold);
+    color: var(--navy);
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 50px;         /* a large radius makes a pill shape */
+    transition: transform var(--ease), background-color var(--ease), box-shadow var(--ease);
+    animation: fadeUp 1s ease-out 0.6s both;
+}
+
+.btn:hover {
+    background-color: var(--gold-light);
+    transform: translateY(-4px); /* lifts up slightly */
+    box-shadow: var(--shadow);
+}
+
+/* ========== WELCOME TEXT ========== */
+.welcome-description {
+    max-width: 800px;            /* stops lines getting too long to read on wide screens */
+    margin: 50px auto 30px;      /* auto on the sides centres the block */
+    padding: 0 20px;
     text-align: center;
 }
 
-/* ========== ANIMATIONS ========== */
-/* # selects an element by its id; . selects by class */
-#welcome-title {
-    animation: slideIn 1.2s ease-out;
+.welcome-description p {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    line-height: 1.8;
 }
 
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(-40px);   /* starts 40px higher up */
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.divider {
+    width: 80px;
+    height: 4px;
+    border: 0;                   /* remove the default grey line */
+    border-radius: 2px;
+    background-color: var(--gold);
+    margin: 0 auto 25px;
 }
 
-.welcome-description {
-    /* "both" keeps the starting state during the 0.5s delay and the end state after */
-    animation: fadeIn 1.5s ease-in 0.5s both;
-    padding: 20px;
-    margin: 15px;
-    font-size: large;
+/* ========== SCROLL REVEAL ========== */
+.reveal {
+    opacity: 0;                  /* invisible and shifted down until JavaScript adds .visible */
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* ========== IMAGE SLIDER ========== */
 .container-wrapper {
-    max-width: 1000px;
-    margin: 30px auto;           /* "auto" on the sides centres the block */
+    max-width: 1100px;
+    margin: 30px auto 50px;
     padding: 0 20px;
 }
 
 .slider-wrapper {
-    position: relative;          /* lets the arrow buttons position themselves inside it */
+    position: relative;          /* the arrow buttons are positioned inside this */
 }
 
 .image-list {
-    display: flex;               /* lines the images up in one row */
+    display: flex;
     gap: 15px;
-    overflow-x: auto;            /* a horizontal scrollbar appears when images don't fit */
+    overflow-x: auto;
+    padding: 12px 0;             /* room so the zoom and shadow on hover aren't cut off */
+    scroll-snap-type: x mandatory;   /* images "click" into place when you scroll */
     scrollbar-width: thin;
 }
 
 .image-item {
-    flex: 0 0 auto;              /* don't grow, don't shrink, keep own size */
-    width: 400px;
-    height: 280px;
+    flex: 0 0 auto;              /* don't grow, don't shrink */
+    width: clamp(240px, 40vw, 400px);    /* responsive size, no media query needed */
+    height: clamp(180px, 28vw, 280px);
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: 12px;
+    scroll-snap-align: start;    /* each image's left edge is where it snaps */
+    transition: transform var(--ease), box-shadow var(--ease);
+}
+
+.image-item:hover {
+    transform: scale(1.04);
+    box-shadow: var(--shadow);
 }
 
 .slider-btn {
-    position: absolute;          /* placed relative to .slider-wrapper */
+    position: absolute;
     top: 50%;
-    transform: translateY(-50%); /* moves it up by half its own height to centre it */
-    margin: 0;                   /* cancels the 15px margin from the general button rule */
-    z-index: 1;                  /* keeps the buttons on top of the images */
-    background-color: rgba(6, 76, 99, 0.85);
-    color: white;
+    transform: translateY(-50%);     /* centres the button vertically */
+    z-index: 2;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;          /* 50% turns a square into a circle */
+    background-color: rgba(11, 37, 69, 0.9);
+    color: var(--gold);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color var(--ease), color var(--ease), transform var(--ease);
+}
+
+.slider-btn:hover {
+    background-color: var(--gold);
+    color: var(--navy);
+    transform: translateY(-50%) scale(1.1);   /* must repeat translateY, or the centring is lost */
 }
 
 .slider-btn.prev { left: 10px; }
@@ -188,35 +293,81 @@ button:hover {
 
 /* ========== FOOTER ========== */
 footer {
+    background-color: var(--navy);
+    color: #cfd8e3;
     text-align: center;
-    padding: 20px;
+    padding: 25px 20px;
 }
 
-/* ========== PHONES ========== */
-/* These rules apply only when the screen is 600px wide or smaller */
-@media (max-width: 600px) {
-    .navbar {
-        flex-direction: column;  /* logo above the links */
-        padding: 10px;
+/* ========== ANIMATIONS ========== */
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-40px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoomOut {
+    from { transform: scale(1.12); }
+    to   { transform: scale(1); }
+}
+
+/* ========== TABLETS AND PHONES ========== */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;          /* show the hamburger */
     }
 
     .nav-links {
-        flex-wrap: wrap;         /* links drop to a new row if needed */
-        justify-content: center;
-        margin-left: 0;
+        position: absolute;      /* drops down under the navbar */
+        top: 100%;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        gap: 0;
+        background-color: var(--navy-light);
+        max-height: 0;           /* collapsed: no height, so it's hidden */
+        overflow: hidden;
+        transition: max-height 0.4s ease;
     }
 
-    h1, h2 {
-        font-size: 32px;
+    .nav-links.open {
+        max-height: 320px;       /* JavaScript adds .open, so the menu slides down */
     }
 
-    .hero-image {
-        height: 250px;
+    .nav-links li {
+        text-align: center;
     }
 
-    .image-item {
-        width: 260px;
-        height: 200px;
+    .nav-links a {
+        display: block;          /* makes the whole row tappable, not just the text */
+        padding: 14px 0;
+    }
+
+    .nav-links a::after {
+        display: none;           /* the underline effect isn't needed in the dropdown */
+    }
+
+    .slider-btn {
+        width: 38px;
+        height: 38px;
+    }
+}
+
+/* ========== ACCESSIBILITY ========== */
+/* Some people set their device to reduce motion (it can cause dizziness). We respect that. */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
     }
 }
 

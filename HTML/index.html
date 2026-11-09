@@ -3,87 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel = "stylesheet" href="../CSS/style.css">
-    
+    <title>MyNeoEstate | Home</title>
+    <link rel="stylesheet" href="../CSS/style.css">
 </head>
 <body>
-        <nav class="navbar">
 
-                <a rel="icon" href="index.html" class="logo-link">
-                        <img src="../MEDIA/logo2.png" alt="logo" class="nav-logo"> 
-                   
-                </a>
+    <nav class="navbar" id="navbar">
+        <a href="index.html" class="logo-link">
+            <img src="../MEDIA/logo2.png" alt="MyNeoEstate logo" class="nav-logo">
+        </a>
 
-              <ul class="nav-links">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
 
-                <a href="../HTML/index.html" class="button"> HOME </a>
-                <a href="../HTML/about.html" class="button"> ABOUT </a>
-                <a href="../HTML/estates.html" class="button"> PROPERTY </a>
-                <a href="../HTML/payment.html" class="button"> PAYMENT </a>
-                <a href="../HTML/contact.html" class="button"> CONTACTS </a>
-                </ul>
-        
-        
-        </nav>
-        <img src="../MEDIA/homephoto2.png" alt="estate" height="400px" width="100%">
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html" class="active">HOME</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="estates.html">PROPERTY</a></li>
+            <li><a href="payment.html">PAYMENT</a></li>
+            <li><a href="contact.html">CONTACTS</a></li>
+        </ul>
+    </nav>
 
-<h2 id="welcome-title">
-        
-       
-               WELCOME<br>
-                TO <br>
-                MYNEOESTATE
-                </h2>
-        <hr>
+    <section class="hero">
+        <img src="../MEDIA/homephoto2.png" alt="A modern estate" class="hero-image">
+        <div class="hero-content">
+            <h1 id="welcome-title">
+                WELCOME TO
+                <span>MYNEOESTATE</span>
+            </h1>
+            <a href="estates.html" class="btn">View Properties</a>
+        </div>
+    </section>
 
-        
-        
-
-        <div class="welcome-discription">
-            
-        
+    <section class="welcome-description reveal">
+        <hr class="divider">
         <p>A platform designed to help people discover quality homes and exceptional living spaces. Our website provides an easy and professional way to explore available estates, learn more about our services, and connect with us.</p>
-        
+    </section>
 
-        </div>
-       <div class="container-wrapper">
+    <div class="container-wrapper reveal">
         <div class="slider-wrapper">
-                <div class="image-list">
+            <button class="slider-btn prev" aria-label="Previous image">&#10094;</button>
 
-        <img src="../MEDIA/Aboutimage.png" 
-        alt="estates"
-        class="image-item">
+            <div class="image-list">
+                <img src="../MEDIA/Aboutimage.png" alt="Estate exterior" class="image-item">
+                <img src="../MEDIA/image9.png" alt="Estate interior" class="image-item">
+                <img src="../MEDIA/bedroom.png" alt="Bedroom" class="image-item">
+                <img src="../MEDIA/bedroom2.png" alt="Second bedroom" class="image-item">
+                <img src="../MEDIA/bathroom.png" alt="Bathroom" class="image-item">
+                <img src="../MEDIA/image8.png" alt="Estate view" class="image-item">
+            </div>
 
-        <img src="../MEDIA/image9.png"
-         alt="img1" 
-         class="image-item">
-
-        <img src="../MEDIA/bedroom.png" 
-        alt="img2"
-        class="image-item">
-
-        <img src="../MEDIA/bedroom2.png" 
-        alt="img3" 
-        class="image-item">
-
-        <img src="../MEDIA/bathroom.png" 
-        alt="img4" 
-        class="image-item">
-
-        <img src="../MEDIA/image8.png" 
-        alt="img5" 
-        class="image-item">
-
+            <button class="slider-btn next" aria-label="Next image">&#10095;</button>
         </div>
-       </div>
-       </div>
-        
-        
-        <footer>
-                <p>@neoestates 2026, All rigths reserved</p>
-        </footer>
-        <script src="../JAVASCRIPT/jquery-3.7.1.min.js"></script>
-        <script src="../JAVASCRIPT/script.js"></script>
+    </div>
+
+    <footer>
+        <p>&copy; MyNeoEstate 2026, All rights reserved</p>
+    </footer>
+
+    <script src="../JAVASCRIPT/jquery-3.7.1.min.js"></script>
+    <script src="../JAVASCRIPT/script.js"></script>
 </body>
 </html>
